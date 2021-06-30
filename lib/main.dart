@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'ui/home.dart';
+import 'package:get_user_location/app/locator.dart';
+import 'package:get_user_location/ui/home_view.dart';
 
 void main() {
+  setupLocator();
   runApp(MyApp());
 }
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: HomeView(),
     );
   }
 }

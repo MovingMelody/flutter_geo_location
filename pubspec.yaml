@@ -26,11 +26,19 @@ dependencies:
   cupertino_icons: ^1.0.2
   geocoding: ^2.0.0
   geolocator: ^7.2.0+1
-  location:
-
+  location: null
+  flutter_hooks:
+  stacked:
+  stacked_services:
+  get_it:
+  injectable:
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.0.4
+  injectable_generator: ^1.4.1
+  # flutter pub run build_runner build --delete-conflicting-outputs
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
