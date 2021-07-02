@@ -4,7 +4,6 @@ import 'package:stacked/stacked_annotations.dart';
 
 @LazySingleton()
 class LocationService {
-  // List<double> points = [];
   String _address = "";
   late Position _position;
   String get actualaddress => _address;
@@ -29,9 +28,9 @@ class LocationService {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
     return await Geolocator.getCurrentPosition(
-      // desiredAccuracy: LocationAccuracy.high,
-      // forceAndroidLocationManager: true
-    );
+        desiredAccuracy: LocationAccuracy.best,
+        forceAndroidLocationManager: true
+        );
   }
 
   Future<String> getAddress() async {
@@ -42,13 +41,9 @@ class LocationService {
           _position.latitude, _position.longitude);
       // List<Placemark> placemarks2 = await placemarkFromCoordinates(13.6293, 79.4056);
       Placemark place = placemarks[0];
-      // _address =
-      //     "name :  ${place.name},City : ${place.locality}, District : ${place.subAdministrativeArea}, postalCode :  ${place.postalCode}, country : ${place.country}";
-      // _address +=
-      //     "\n \n street : ${place.street},  subLocality: ${place.subLocality} ,State: ${place.administrativeArea}, isoCountryCode : ${place.isoCountryCode} ";
-      // print(address);
       _address =
-          " ${place.street} , ${place.name}, ${place.locality} ,  ${place.thoroughfare} , ${place.subLocality} , ${place.subAdministrativeArea} , ${place.postalCode} , ${place.administrativeArea} , ${place.country}";
+          "${place.street} , ${place.name}, ${place.locality} ,  ${place.thoroughfare} , ${place.subLocality} , ${place.subAdministrativeArea} , ${place.postalCode} , ${place.administrativeArea} , ${place.country}";
+      print(_address);
       return _address;
     } catch (e) {
       print(e);
